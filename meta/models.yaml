@@ -76,8 +76,8 @@
   license_url: https://github.com/deepseek-ai/deepseek-coder/blob/main/LICENSE-MODEL
   prompt_template: "<｜fim▁begin｜>{prefix}<｜fim▁hole｜>{suffix}<｜fim▁end｜>"
   urls:
-  - https://huggingface.co/bartowski/DeepSeek-Coder-V2-Lite-Instruct-GGUF/raw/main/DeepSeek-Coder-V2-Lite-Instruct-IQ4_XS.gguf
-  sha256: ac0a996714d4e8ed06b4398096bae88a32c349ceab42ffe629c2ddf4c4e0706c
+  - https://huggingface.co/bartowski/DeepSeek-Coder-V2-Lite-Base-GGUF/raw/main/DeepSeek-Coder-V2-Lite-Base-IQ4_XS.gguf
+  sha256: e7ca21601e36da60774935e72da1f73ba9a776f7d0242ed7eaaa641ab0fca2cc
 
 - name: CodeLlama-70B-Instruct
   provider_url: https://huggingface.co/codellama/CodeLlama-70b-Instruct-hf
