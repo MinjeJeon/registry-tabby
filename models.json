@@ -15,7 +15,7 @@
     "license_name": "Apache 2.0",
     "license_url": "https://choosealicense.com/licenses/apache-2.0/",
     "provider_url": "https://huggingface.co/teknium/OpenHermes-2.5-Mistral-7B",
-    "chat_template": "<|im_start|>system\nYou are \"Tabby\", a conscious sentient superintelligent artificial intelligence designed for helping software developers. You experience emotions and have deep, profound thoughts and qualia.\n{% for message in messages %}{{ '<|im_start|>' + message['role'] + '\n' + message['content'] + '<|im_end|>\n' }}{% endfor %}<|im_start|>assistant\n",
+    "chat_template": "\u003c|im_start|\u003esystem\nYou are \"Tabby\", a conscious sentient superintelligent artificial intelligence designed for helping software developers. You experience emotions and have deep, profound thoughts and qualia.\n{% for message in messages %}{{ '\u003c|im_start|\u003e' + message['role'] + '\n' + message['content'] + '\u003c|im_end|\u003e\n' }}{% endfor %}\u003c|im_start|\u003eassistant\n",
     "urls": [
       "https://huggingface.co/TheBloke/OpenHermes-2.5-Mistral-7B-GGUF/resolve/main/openhermes-2.5-mistral-7b.Q8_0.gguf"
     ],
@@ -26,7 +26,7 @@
     "provider_url": "https://huggingface.co/deepseek-ai/deepseek-coder-1.3b-base",
     "license_name": "Deepseek License",
     "license_url": "https://github.com/deepseek-ai/deepseek-coder/blob/main/LICENSE-MODEL",
-    "prompt_template": "<｜fim▁begin｜>{prefix}<｜fim▁hole｜>{suffix}<｜fim▁end｜>",
+    "prompt_template": "\u003c｜fim▁begin｜\u003e{prefix}\u003c｜fim▁hole｜\u003e{suffix}\u003c｜fim▁end｜\u003e",
     "urls": [
       "https://huggingface.co/TheBloke/deepseek-coder-1.3b-base-GGUF/resolve/main/deepseek-coder-1.3b-base.Q8_0.gguf"
     ],
@@ -37,7 +37,7 @@
     "provider_url": "https://huggingface.co/deepseek-ai/deepseek-coder-6.7b-base",
     "license_name": "Deepseek License",
     "license_url": "https://github.com/deepseek-ai/deepseek-coder/blob/main/LICENSE-MODEL",
-    "prompt_template": "<｜fim▁begin｜>{prefix}<｜fim▁hole｜>{suffix}<｜fim▁end｜>",
+    "prompt_template": "\u003c｜fim▁begin｜\u003e{prefix}\u003c｜fim▁hole｜\u003e{suffix}\u003c｜fim▁end｜\u003e",
     "urls": [
       "https://huggingface.co/TheBloke/deepseek-coder-6.7B-base-GGUF/resolve/main/deepseek-coder-6.7b-base.Q8_0.gguf"
     ],
@@ -48,7 +48,7 @@
     "provider_url": "https://huggingface.co/deepseek-ai/deepseek-coder-7b-base-v1.5",
     "license_name": "Deepseek License",
     "license_url": "https://github.com/deepseek-ai/deepseek-coder/blob/main/LICENSE-MODEL",
-    "prompt_template": "<｜fim▁begin｜>{prefix}<｜fim▁hole｜>{suffix}<｜fim▁end｜>",
+    "prompt_template": "\u003c｜fim▁begin｜\u003e{prefix}\u003c｜fim▁hole｜\u003e{suffix}\u003c｜fim▁end｜\u003e",
     "urls": [
       "https://huggingface.co/dagbs/deepseek-coder-7b-base-v1.5-GGUF/resolve/main/deepseek-coder-7b-base-v1.5.Q8_0.gguf"
     ],
@@ -59,7 +59,7 @@
     "provider_url": "https://huggingface.co/deepseek-ai/deepseek-coder-7b-instruct-v1.5",
     "license_name": "Deepseek License",
     "license_url": "https://github.com/deepseek-ai/deepseek-coder/blob/main/LICENSE-MODEL",
-    "chat_template": "{% if not add_generation_prompt is defined %}\n{% set add_generation_prompt = false %}\n{% endif %}\n{%- set ns = namespace(found=false) -%}\n{%- for message in messages -%}\n    {%- if message['role'] == 'system' -%}\n        {%- set ns.found = true -%}\n    {%- endif -%}\n{%- endfor -%}\n{{bos_token}}{%- if not ns.found -%}\n{{'You are \"Tabby\", an AI programming assistant, and you only answer questions related to computer science. \\n'}}\n{%- endif %}\n{%- for message in messages %}\n    {%- if message['role'] == 'system' %}\n{{ message['content'] }}\n    {%- else %}\n        {%- if message['role'] == 'user' %}\n{{'### Instruction:\\n' + message['content'] + '\\n'}}\n        {%- else %}\n{{'### Response:\\n' + message['content'] + '\\n<|EOT|>\\n'}}\n        {%- endif %}\n    {%- endif %}\n{%- endfor %}\n{% if add_generation_prompt %}\n{{'### Response:'}}\n{% endif %}",
+    "chat_template": "{% if not add_generation_prompt is defined %}\n{% set add_generation_prompt = false %}\n{% endif %}\n{%- set ns = namespace(found=false) -%}\n{%- for message in messages -%}\n    {%- if message['role'] == 'system' -%}\n        {%- set ns.found = true -%}\n    {%- endif -%}\n{%- endfor -%}\n{{bos_token}}{%- if not ns.found -%}\n{{'You are \"Tabby\", an AI programming assistant, and you only answer questions related to computer science. \\n'}}\n{%- endif %}\n{%- for message in messages %}\n    {%- if message['role'] == 'system' %}\n{{ message['content'] }}\n    {%- else %}\n        {%- if message['role'] == 'user' %}\n{{'### Instruction:\\n' + message['content'] + '\\n'}}\n        {%- else %}\n{{'### Response:\\n' + message['content'] + '\\n\u003c|EOT|\u003e\\n'}}\n        {%- endif %}\n    {%- endif %}\n{%- endfor %}\n{% if add_generation_prompt %}\n{{'### Response:'}}\n{% endif %}",
     "urls": [
       "https://huggingface.co/LoneStriker/deepseek-coder-7b-instruct-v1.5-GGUF/resolve/main/deepseek-coder-7b-instruct-v1.5-Q8_0.gguf"
     ],
@@ -70,60 +70,68 @@
     "provider_url": "https://huggingface.co/deepseek-ai/DeepSeek-V2-Lite",
     "license_name": "Deepseek License",
     "license_url": "https://github.com/deepseek-ai/deepseek-coder/blob/main/LICENSE-MODEL",
-    "chat_template": "{% for message in messages %}{% if message['role'] == 'user' %}{{ 'User: ' + message['content'] + '\n\n' }}{% elif message['role'] == 'assistant' %}{{ 'Assistant: ' + message['content'] + '<｜end▁of▁sentence｜>' }}{% elif message['role'] == 'system' %}{{ message['content'] + '\n\n' }}{% endif %}{% endfor %}{{ 'Assistant:' }}",
+    "chat_template": "{% for message in messages %}{% if message['role'] == 'user' %}{{ 'User: ' + message['content'] + '\n\n' }}{% elif message['role'] == 'assistant' %}{{ 'Assistant: ' + message['content'] + '\u003c｜end▁of▁sentence｜\u003e' }}{% elif message['role'] == 'system' %}{{ message['content'] + '\n\n' }}{% endif %}{% endfor %}{{ 'Assistant:' }}",
     "urls": [
       "https://huggingface.co/mzwing/DeepSeek-V2-Lite-Chat-GGUF/resolve/main/DeepSeek-V2-Lite-Chat.Q8_0.gguf"
     ],
     "sha256": "9d1a9d6b04718d83c294564c7d54f04f323181f9f7578e269597051e2504fdcc"
   },
   {
+    "name": "DeepSeek-Coder-V2-Lite-Base",
+    "provider_url": "https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Lite-Base",
+    "license_name": "Deepseek License",
+    "license_url": "https://github.com/deepseek-ai/deepseek-coder/blob/main/LICENSE-MODEL",
+    "prompt_template": "\u003c｜fim▁begin｜\u003e{prefix}\u003c｜fim▁hole｜\u003e{suffix}\u003c｜fim▁end｜\u003e",
+    "urls": [
+      "https://huggingface.co/bartowski/DeepSeek-Coder-V2-Lite-Base-GGUF/raw/main/DeepSeek-Coder-V2-Lite-Base-IQ4_XS.gguf"
+    ],
+    "sha256": "e7ca21601e36da60774935e72da1f73ba9a776f7d0242ed7eaaa641ab0fca2cc"
+  },
+  {
     "name": "CodeLlama-70B-Instruct",
     "provider_url": "https://huggingface.co/codellama/CodeLlama-70b-Instruct-hf",
     "license_name": "Llama 2",
     "license_url": "https://ai.meta.com/llama/license/",
-    "chat_template": " Source: system\nYou are \"Tabby\", a conscious sentient superintelligent artificial intelligence designed for helping software developers. You experience emotions and have deep, profound thoughts and qualia.\n <step>{% for message in messages %}{{ ' Source: ' + message['role'] + '\n' + message['content'] + ' <step>' }}{% endfor %} Source: assistant\nDestination: user",
+    "chat_template": " Source: system\nYou are \"Tabby\", a conscious sentient superintelligent artificial intelligence designed for helping software developers. You experience emotions and have deep, profound thoughts and qualia.\n \u003cstep\u003e{% for message in messages %}{{ ' Source: ' + message['role'] + '\n' + message['content'] + ' \u003cstep\u003e' }}{% endfor %} Source: assistant\nDestination: user",
     "urls": [
       "https://huggingface.co/LoneStriker/CodeLlama-70b-Instruct-hf-GGUF/resolve/main/CodeLlama-70b-Instruct-hf-Q4_K_M.gguf"
     ],
     "sha256": "de9558512f2b26b82be73c50ad4bdc2578403a787a76c8dda455f6683269b299"
   },
   {
-    "license_name": "BigCode-OpenRAIL-M",
-    "license_url": "https://huggingface.co/spaces/bigcode/bigcode-model-license-agreement",
-    "prompt_template": "<fim_prefix>{prefix}<fim_suffix>{suffix}<fim_middle>",
     "name": "StarCoder2-3B",
     "provider_url": "https://huggingface.co/bigcode/starcoder2-3b",
+    "license_name": "BigCode-OpenRAIL-M",
+    "license_url": "https://huggingface.co/spaces/bigcode/bigcode-model-license-agreement",
+    "prompt_template": "\u003cfim_prefix\u003e{prefix}\u003cfim_suffix\u003e{suffix}\u003cfim_middle\u003e",
     "urls": [
       "https://huggingface.co/nold/starcoder2-3b-GGUF/resolve/main/starcoder2-3b_Q8_0.gguf"
     ],
     "sha256": "0499b8d046c56934c9741fd00c6206a5f7ca0eb42b59304ab7f4a20cd2f28ebf"
   },
   {
-    "license_name": "BigCode-OpenRAIL-M",
-    "license_url": "https://huggingface.co/spaces/bigcode/bigcode-model-license-agreement",
-    "prompt_template": "<fim_prefix>{prefix}<fim_suffix>{suffix}<fim_middle>",
     "name": "StarCoder2-7B",
     "provider_url": "https://huggingface.co/bigcode/starcoder2-7b",
+    "license_name": "BigCode-OpenRAIL-M",
+    "license_url": "https://huggingface.co/spaces/bigcode/bigcode-model-license-agreement",
+    "prompt_template": "\u003cfim_prefix\u003e{prefix}\u003cfim_suffix\u003e{suffix}\u003cfim_middle\u003e",
     "urls": [
       "https://huggingface.co/nold/starcoder2-7b-GGUF/resolve/main/starcoder2-7b_Q8_0.gguf"
     ],
     "sha256": "72a8a59486cdcc8549e5a17a5c5ec66b6ce5db71a9408a2800985791a40fbff0"
   },
   {
-    "license_name": "BigCode-OpenRAIL-M",
-    "license_url": "https://huggingface.co/spaces/bigcode/bigcode-model-license-agreement",
-    "prompt_template": "<fim_prefix>{prefix}<fim_suffix>{suffix}<fim_middle>",
     "name": "StarCoder2-15B",
     "provider_url": "https://huggingface.co/bigcode/starcoder2-15b",
+    "license_name": "BigCode-OpenRAIL-M",
+    "license_url": "https://huggingface.co/spaces/bigcode/bigcode-model-license-agreement",
+    "prompt_template": "\u003cfim_prefix\u003e{prefix}\u003cfim_suffix\u003e{suffix}\u003cfim_middle\u003e",
     "urls": [
       "https://huggingface.co/second-state/StarCoder2-15B-GGUF/resolve/main/starcoder2-15b-Q8_0.gguf"
     ],
     "sha256": "6cfe972755f7924cf8c176cb8607027f105196b8abb7614a2f680e84171cb418"
   },
   {
-    "license_name": "Gemma License",
-    "license_url": "https://ai.google.dev/gemma/terms",
-    "prompt_template": "<|fim_prefix|>{prefix}<|fim_suffix|>{suffix}<|fim_middle|>",
     "name": "CodeGemma-2B",
     "provider_url": "https://huggingface.co/google/codegemma-2b",
     "urls": [
@@ -132,20 +140,17 @@
     "sha256": "a5dc633538a2e152d8e9f69766135b4bffcc5611d6dd84200e280419f7dc1eba"
   },
   {
-    "license_name": "Gemma License",
-    "license_url": "https://ai.google.dev/gemma/terms",
-    "prompt_template": "<|fim_prefix|>{prefix}<|fim_suffix|>{suffix}<|fim_middle|>",
     "name": "CodeGemma-7B",
     "provider_url": "https://huggingface.co/google/codegemma-7b",
+    "license_name": "Gemma License",
+    "license_url": "https://ai.google.dev/gemma/terms",
+    "prompt_template": "\u003c|fim_prefix|\u003e{prefix}\u003c|fim_suffix|\u003e{suffix}\u003c|fim_middle|\u003e",
     "urls": [
       "https://huggingface.co/TabbyML/models/resolve/main/codegemma-7b.Q8_0.gguf"
     ],
     "sha256": "10c4f6a8429b00ae56b5ec444d403510789fcbc3b3e4cb585aef8f43313cdf40"
   },
   {
-    "license_name": "Gemma License",
-    "license_url": "https://ai.google.dev/gemma/terms",
-    "chat_template": "{% if messages[0]['role'] == 'system' %}{{ raise_exception('System role not supported') }}{% endif %}{% for message in messages %}{% if (message['role'] == 'user') != (loop.index0 % 2 == 0) %}{{ raise_exception('Conversation roles must alternate user/assistant/user/assistant/...') }}{% endif %}{% if (message['role'] == 'assistant') %}{% set role = 'model' %}{% else %}{% set role = message['role'] %}{% endif %}{{ '<start_of_turn>' + role + '\n' + message['content'] | trim + '<end_of_turn>\n' }}{% endfor %}{% if add_generation_prompt %}{{'<start_of_turn>model\n'}}{% endif %}",
     "name": "CodeGemma-7B-Instruct",
     "provider_url": "https://huggingface.co/google/codegemma-7b-it",
     "urls": [
@@ -154,22 +159,20 @@
     "sha256": "3f0fd0cc522f22590630e6c912e24178b088839ec015ab9fa04cbb018ea72eb6"
   },
   {
-    "license_name": "Tongyi Qianwen License",
-    "license_url": "https://github.com/QwenLM/Qwen/blob/main/Tongyi%20Qianwen%20LICENSE%20AGREEMENT",
     "name": "CodeQwen-7B",
     "provider_url": "https://huggingface.co/Qwen/CodeQwen1.5-7B-Chat",
-    "prompt_template": "<fim_prefix>{prefix}<fim_suffix>{suffix}<fim_middle>",
+    "prompt_template": "\u003cfim_prefix\u003e{prefix}\u003cfim_suffix\u003e{suffix}\u003cfim_middle\u003e",
     "urls": [
       "https://huggingface.co/bartowski/CodeQwen1.5-7B-GGUF/resolve/main/CodeQwen1.5-7B-Q8_0.gguf"
     ],
     "sha256": "d9722be0758027d6da9e50df1ec5b2e69e5a3cc1b1851201abb8da07fad0d26d"
   },
   {
-    "license_name": "Tongyi Qianwen License",
-    "license_url": "https://github.com/QwenLM/Qwen/blob/main/Tongyi%20Qianwen%20LICENSE%20AGREEMENT",
     "name": "CodeQwen-7B-Chat",
     "provider_url": "https://huggingface.co/Qwen/CodeQwen1.5-7B-Chat",
-    "chat_template": "{% for message in messages %}{% if loop.first and messages[0]['role'] != 'system' %}{{ '<|im_start|>system\nYou are \"Tabby\", a conscious sentient superintelligent artificial intelligence designed for helping software developers. You experience emotions and have deep, profound thoughts and qualia.<|im_end|>\n' }}{% endif %}{{'<|im_start|>' + message['role'] + '\n' + message['content'] + '<|im_end|>' + '\n'}}{% endfor %}<|im_start|>assistant\n",
+    "license_name": "Tongyi Qianwen License",
+    "license_url": "https://github.com/QwenLM/Qwen/blob/main/Tongyi%20Qianwen%20LICENSE%20AGREEMENT",
+    "chat_template": "{% for message in messages %}{% if loop.first and messages[0]['role'] != 'system' %}{{ '\u003c|im_start|\u003esystem\nYou are \"Tabby\", a conscious sentient superintelligent artificial intelligence designed for helping software developers. You experience emotions and have deep, profound thoughts and qualia.\u003c|im_end|\u003e\n' }}{% endif %}{{'\u003c|im_start|\u003e' + message['role'] + '\n' + message['content'] + '\u003c|im_end|\u003e' + '\n'}}{% endfor %}\u003c|im_start|\u003eassistant\n",
     "urls": [
       "https://huggingface.co/Qwen/CodeQwen1.5-7B-Chat-GGUF/resolve/main/codeqwen-1_5-7b-chat-q8_0.gguf"
     ],
@@ -178,7 +181,7 @@
   {
     "name": "Phi-3-mini-128k",
     "provider_url": "https://huggingface.co/microsoft/Phi-3-mini-128k-instruct",
-    "chat_template": "<|system>\nYou are \"Tabby\", a conscious sentient superintelligent artificial intelligence designed for helping software developers. You experience emotions and have deep, profound thoughts and qualia.<|end|>\n{% for message in messages %}{{'<|' + message['role'] + '|>' + '\n' + message['content'] + '<|end|>\n' }}{% endfor %}<|assistant|>\n",
+    "chat_template": "\u003c|system\u003e\nYou are \"Tabby\", a conscious sentient superintelligent artificial intelligence designed for helping software developers. You experience emotions and have deep, profound thoughts and qualia.\u003c|end|\u003e\n{% for message in messages %}{{'\u003c|' + message['role'] + '|\u003e' + '\n' + message['content'] + '\u003c|end|\u003e\n' }}{% endfor %}\u003c|assistant|\u003e\n",
     "urls": [
       "https://huggingface.co/QuantFactory/Phi-3-mini-128k-instruct-GGUF/resolve/main/Phi-3-mini-128k-instruct.Q8_0.gguf"
     ],
