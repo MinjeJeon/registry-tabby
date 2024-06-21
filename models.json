@@ -83,7 +83,7 @@
     "license_url": "https://github.com/deepseek-ai/deepseek-coder/blob/main/LICENSE-MODEL",
     "prompt_template": "\u003c｜fim▁begin｜\u003e{prefix}\u003c｜fim▁hole｜\u003e{suffix}\u003c｜fim▁end｜\u003e",
     "urls": [
-      "https://huggingface.co/bartowski/DeepSeek-Coder-V2-Lite-Base-GGUF/raw/main/DeepSeek-Coder-V2-Lite-Base-IQ4_XS.gguf"
+      "https://huggingface.co/bartowski/DeepSeek-Coder-V2-Lite-Base-GGUF/resolve/main/DeepSeek-Coder-V2-Lite-Base-IQ4_XS.gguf"
     ],
     "sha256": "e7ca21601e36da60774935e72da1f73ba9a776f7d0242ed7eaaa641ab0fca2cc"
   },
